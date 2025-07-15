@@ -1,0 +1,379 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+h3 {
+  color: #4a5568;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+h4 {
+  color: #2d3748;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.dashboard, .scroll-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* Button */
+button {
+  margin: 8px 4px;
+  padding: 10px 16px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Navbar */
+.navbar {
+  background: #ffffff;
+  padding: 16px 24px;
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+.navbar a {
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: 15px;
+}
+
+.navbar a:hover {
+  color: #4f46e5;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  position: relative;
+  min-width: 320px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.modal-content.center {
+  position: relative;
+}
+
+.modal-content.top-right {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6b7280;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Infinite Scroll - Real Page Scroll */
+.scroll-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.scroll-item {
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s ease;
+}
+
+.scroll-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.scroll-item img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.scroll-item h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.scroll-item p {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Accordion */
+.accordion {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin: 12px 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2d3748;
+  background: #f9fafb;
+  padding: 16px 20px;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background: #f3f4f6;
+}
+
+.accordion-icon {
+  font-size: 12px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+}
+
+.accordion-body-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion.open .accordion-body-wrapper {
+  max-height: 500px;
+}
+
+.accordion-body {
+  padding: 20px;
+  background: #ffffff;
+  border-top: 1px solid #f3f4f6;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+/* AutoComplete */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.autocomplete-container h3 {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.autocomplete-container input {
+  width: 100%;
+  padding: 12px 12px 12px 36px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+  background: #ffffff;
+}
+
+.autocomplete-container input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.autocomplete-container input::placeholder {
+  color: #9ca3af;
+}
+
+/* Suggestions List */
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 2px;
+  padding: 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #d1d5db;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 999;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions li {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.suggestions li:last-child {
+  border-bottom: none;
+}
+
+.suggestions li:hover,
+.suggestions li:focus {
+  background: #f8fafc;
+  color: #2d3748;
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard, .scroll-page {
+    padding: 16px;
+  }
+  
+  .navbar {
+    padding: 12px 16px;
+    gap: 24px;
+  }
+  
+  .modal-content {
+    margin: 16px;
+    padding: 20px;
+  }
+  
+  .modal-content.top-right {
+    top: 16px;
+    right: 16px;
+  }
+  
+  .scroll-item {
+    padding: 16px;
+  }
+  
+  .scroll-item img {
+    max-width: 100%;
+  }
+  
+  .autocomplete-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard, .scroll-page {
+    padding: 12px;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .modal-content {
+    margin: 12px;
+    padding: 16px;
+  }
+  
+  .accordion-header {
+    padding: 12px 16px;
+  }
+  
+  .accordion-body {
+    padding: 16px;
+  }
+}
